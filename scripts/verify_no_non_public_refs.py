@@ -26,6 +26,9 @@ SKIP_DIRS = {
 }
 SKIP_FILES = {Path("scripts/verify_no_non_public_refs.py")}
 SKIP_PATH_PARTS = {".github", "workflows"}
+SKIP_PATH_PREFIXES = (
+    Path("terminal-bench-benchmark-service/datasets"),
+)
 TEXT_SUFFIXES = {
     "",
     ".dockerfile",
@@ -67,11 +70,14 @@ def iter_files(path: Path):
     for child in path.rglob("*"):
         if not child.is_file():
             continue
-        if any(part in SKIP_DIRS for part in child.relative_to(ROOT).parts):
+        rel_path = child.relative_to(ROOT)
+        if any(part in SKIP_DIRS for part in rel_path.parts):
             continue
-        if any(part in SKIP_PATH_PARTS for part in child.relative_to(ROOT).parts):
+        if any(part in SKIP_PATH_PARTS for part in rel_path.parts):
             continue
-        if child.relative_to(ROOT) in SKIP_FILES:
+        if any(rel_path.is_relative_to(prefix) for prefix in SKIP_PATH_PREFIXES):
+            continue
+        if rel_path in SKIP_FILES:
             continue
         if child.suffix.lower() in TEXT_SUFFIXES:
             yield child
