@@ -1,0 +1,8 @@
+[submodule "swebench-benchmark-service"]
+	path = swebench-benchmark-service
+	url = https://github.com/vals-ai/SWEBenchBenchmarkService.git
+	branch = main
+[submodule "terminal-bench-benchmark-service"]
+	path = terminal-bench-benchmark-service
+	url = https://github.com/vals-ai/terminal-bench-benchmark-service.git
+	branch = master

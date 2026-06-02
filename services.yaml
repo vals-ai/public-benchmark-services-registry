@@ -1,0 +1,21 @@
+services:
+  swebench:
+    path: swebench-benchmark-service
+    repository: https://github.com/vals-ai/SWEBenchBenchmarkService.git
+    branch: main
+    public_dependencies:
+      - create-benchmark-service
+      - datasets
+      - swebench
+      - pandas
+      - tenacity
+  terminal-bench:
+    path: terminal-bench-benchmark-service
+    repository: https://github.com/vals-ai/terminal-bench-benchmark-service.git
+    branch: master
+    public_dependencies:
+      - create-benchmark-service
+      - tenacity
+    dataset_submodules:
+      - https://github.com/laude-institute/terminal-bench-2.git
+      - https://github.com/harbor-framework/terminal-bench-2-1.git
