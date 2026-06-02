@@ -1,8 +1,8 @@
 # public-benchmark-services-registry
 
-Public pilot registry for benchmark services that can be shared outside Vals.
+A registry of public benchmark services used by valkyrie.
 
-This registry intentionally contains only:
+This registry contains:
 
 - `swebench-benchmark-service`
 - `terminal-bench-benchmark-service`
