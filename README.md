@@ -27,16 +27,6 @@ public-benchmark-services-registry/
 make install-submodules
 ```
 
-## Verify public-readiness
-
-```bash
-make verify
-```
-
-The verification script checks the registry files and both service submodules for references that would
-require non-public model, service, or Git access. The service repositories currently depend only on the
-public `create-benchmark-service` framework plus public Python packages and public dataset/image sources.
-
 ## Publication note
 
 The service submodule URLs use HTTPS and point at public repositories so external users can clone the
