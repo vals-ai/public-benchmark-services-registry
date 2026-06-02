@@ -1,6 +1,6 @@
 # public-benchmark-services-registry
 
-A registry of public benchmark services used by valkyrie.
+A registry of public benchmark services used by [Valkyrie](https://github.com/vals-ai/Valkyrie).
 
 This registry contains:
 
