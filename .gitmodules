@@ -6,3 +6,7 @@
 	path = terminal-bench-benchmark-service
 	url = https://github.com/vals-ai/terminal-bench-benchmark-service.git
 	branch = master
+[submodule "skillsbench-benchmark-service"]
+	path = skillsbench-benchmark-service
+	url = https://github.com/benchflow-ai/skillsbench-benchmark-service.git
+	branch = codex/initial-skillsbench-service

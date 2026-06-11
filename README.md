@@ -6,6 +6,7 @@ This registry contains:
 
 - `swebench-benchmark-service`
 - `terminal-bench-benchmark-service`
+- `skillsbench-benchmark-service`
 
 Both services are included as HTTPS Git submodules. The registry does not include hosted deployment
 infrastructure or customer-specific service configuration.
@@ -16,6 +17,7 @@ infrastructure or customer-specific service configuration.
 public-benchmark-services-registry/
 ├── swebench-benchmark-service/
 ├── terminal-bench-benchmark-service/
+├── skillsbench-benchmark-service/
 ├── services.yaml
 ├── Makefile
 └── scripts/
