@@ -7,6 +7,7 @@ can clone, inspect, and run locally.
 
 New benchmark services must:
 
+- Expose the benchmark service API defined by [create-benchmark-service](https://github.com/vals-ai/create-benchmark-service)
 - Use a public Git repository that can be cloned over HTTPS.
 - Be added as a Git submodule under `<name>-benchmark-service/`.
 - Include a matching `services.yaml` entry with the service key, path,
@@ -15,9 +16,6 @@ New benchmark services must:
 - Provide a root `README.md` with benchmark scope, data requirements, and local
   development commands.
 - Provide a root `Dockerfile` for containerized execution.
-- Expose the benchmark service API expected by Vals tooling, including health,
-  task retrieval, setup or response evaluation, instance evaluation when
-  applicable, and final scoring.
 - Keep all required datasets, nested submodules, model assets, and package
   dependencies publicly accessible or document the public access steps.
 - Include a clear license and data-use story for benchmark code and datasets.
