@@ -10,7 +10,7 @@ Branch:
 
 ## Registry changes
 
-- [ ] Added the service as an HTTPS Git submodule under `<name>-benchmark-service/`.
+- [ ] Added the service as a Git submodule under `<name>-benchmark-service/`.
 - [ ] Added or updated the matching `services.yaml` entry.
 - [ ] Pinned the submodule to the reviewed service commit.
 - [ ] Confirmed recursive clone works without SSH credentials.
