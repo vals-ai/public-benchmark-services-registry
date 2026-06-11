@@ -22,6 +22,8 @@ New service commit:
 - [ ] `.gitmodules`, submodule commit, and `services.yaml` remain aligned.
 - [ ] Submodule URLs still use HTTPS and public repositories.
 - [ ] Local setup instructions are still accurate.
+- [ ] The service still exposes the `create-benchmark-service` API expected by
+      this registry.
 - [ ] Behavior changes are documented in the service README or this PR.
 
 ## Compatibility

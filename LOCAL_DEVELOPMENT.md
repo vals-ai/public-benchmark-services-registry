@@ -38,6 +38,35 @@ sed -n '1,200p' services.yaml
 git submodule status --recursive
 ```
 
+## Create a new benchmark service
+
+New services should start from
+[create-benchmark-service](https://github.com/vals-ai/create-benchmark-service)
+so they inherit the expected FastAPI app, `BenchmarkService` base class,
+schemas, Dockerfile, Makefile, and test layout.
+
+```bash
+uv tool install git+https://github.com/vals-ai/create-benchmark-service.git@main
+create-benchmark-service <benchmark-name>
+cd <benchmark-name>-benchmark-service
+make install
+make dev
+```
+
+The generated service includes a working example. Replace it with your benchmark
+implementation, then verify the framework API before adding the service as a
+registry submodule:
+
+```bash
+make test
+make docker-build
+make docker-run
+curl http://localhost:8001/health
+```
+
+The local development server prints its selected port. Use `/docs` on that port
+to inspect the generated OpenAPI schema.
+
 ## Run SWE-bench locally
 
 ```bash

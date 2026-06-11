@@ -17,13 +17,22 @@ Branch:
 
 ## Service requirements
 
+- [ ] Service was generated with, or intentionally matches,
+      `create-benchmark-service`.
 - [ ] Root `README.md` documents benchmark scope, datasets, and local commands.
 - [ ] Root `Dockerfile` builds the service image.
-- [ ] Service exposes a health endpoint.
-- [ ] Service supports task retrieval.
-- [ ] Service supports setup or response evaluation.
-- [ ] Service supports instance evaluation when the benchmark requires a sandbox.
-- [ ] Service supports final scoring.
+- [ ] `BenchmarkService.load_datasets()` loads every public dataset.
+- [ ] `BenchmarkService.list_tasks()` returns public `V1Task` records for
+      `/v1/datasets/{dataset}/tasks`.
+- [ ] `BenchmarkService.retrieve_task()` returns sandbox source, problem path,
+      working directory, timeout, and resource metadata.
+- [ ] `BenchmarkService.setup_task()` streams sandbox setup progress and a final
+      result.
+- [ ] `BenchmarkService.evaluate_response()` supports response-only evaluation
+      when applicable.
+- [ ] `BenchmarkService.evaluate_instance()` supports sandbox evaluation when
+      applicable.
+- [ ] `BenchmarkService.calculate_final_score()` aggregates per-task results.
 - [ ] Public dependencies, datasets, and nested submodules are documented.
 - [ ] License and data-use terms are documented.
 
