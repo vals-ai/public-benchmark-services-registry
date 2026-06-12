@@ -67,25 +67,31 @@ curl http://localhost:8001/health
 The local development server prints its selected port. Use `/docs` on that port
 to inspect the generated OpenAPI schema.
 
-## Run SWE-bench locally
+## Run a registered service locally
+
+Each service owns its own dataset setup and benchmark-specific commands. Use
+this registry to find the service path, then follow that service's README for
+any extra setup steps before running it.
+
+Current service paths:
+
+- `swebench-benchmark-service`
+- `terminal-bench-benchmark-service`
+
+Generic workflow:
 
 ```bash
-cd swebench-benchmark-service
+cd <service-path>
+make help
 make install
-make setup
 make dev
-```
-
-The development server prints the selected local port. Open `/docs` on that
-port for the FastAPI schema and use `/health` for a basic smoke check.
-
-To run tests:
-
-```bash
 make test
 ```
 
-To build and run the service container:
+The development server prints its selected local port. Open `/docs` on that port
+for the FastAPI schema and use `/health` on that port for a basic smoke check.
+
+For container validation, use the service's Docker targets when present:
 
 ```bash
 make docker-build
@@ -93,31 +99,9 @@ make docker-run
 curl http://localhost:8001/health
 ```
 
-## Run Terminal-Bench locally
-
-```bash
-cd terminal-bench-benchmark-service
-make install-submodules
-make install
-make dev
-```
-
-The development server prints the selected local port. Open `/docs` on that
-port for the FastAPI schema and use `/health` for a basic smoke check.
-
-To run tests:
-
-```bash
-make test
-```
-
-To build and run the service container:
-
-```bash
-make docker-build
-make docker-run
-curl http://localhost:8001/health
-```
+If a service requires dataset downloads, nested submodules, support images, or
+other benchmark-specific preparation, keep those instructions in the service
+README rather than duplicating them in this registry.
 
 ## Troubleshooting
 
