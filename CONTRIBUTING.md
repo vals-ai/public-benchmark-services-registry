@@ -49,10 +49,10 @@ methods:
 | Method | Requirement |
 | --- | --- |
 | `load_datasets()` | Load each public dataset as `dict[dataset_name, dict[task_id, task_object]]`. |
-| `list_tasks(dataset)` | Return public `V1Task` records for `/v1/datasets/{dataset}/tasks`; do not expose evaluator-only fields. |
+| `list_tasks(dataset)` | Return public `V1Task` records for `/v1/datasets/{dataset}/tasks`. |
 | `retrieve_task(task_id, skip_validation, dataset)` | Return sandbox source, problem path, working directory, timeout, and resource metadata. |
 | `setup_task(task_id, sandbox, dataset)` | Prepare the sandbox and stream setup chunks. |
-| `evaluate_response(request, dataset)` | Score a text response without a sandbox when the benchmark supports it. |
+| `evaluate_response(request, dataset)` | Score a text response without a sandbox when the benchmark supports it. Optional if `evaluate_instance` is implemented. |
 | `evaluate_instance(task_id, sandbox, dataset)` | Run sandbox-based evaluation and stream result chunks when the benchmark requires a sandbox. |
 | `calculate_final_score(evaluation_results, dataset)` | Aggregate per-task results into a final score and metadata. |
 | `project_trial_result(result)` | Required only for trial-mode datasets; return the audited fields trial users may see and resubmit for scoring. |
@@ -70,8 +70,6 @@ methods:
 | `WS` | `/ws/evaluate-response` | Stream response-only evaluation and retry state. |
 | `WS` | `/ws/evaluate-instance` | Stream sandbox evaluation progress and result. |
 | `POST` | `/final-score/` | Aggregate internal evaluation results. |
-| `POST` | `/v1/evaluate` | Lab-facing per-task evaluation. |
-| `POST` | `/v1/score` | Lab-facing run aggregation. |
 | `GET` | `/v1/datasets/{dataset}/tasks` | Lab-facing public task list. |
 
 Document any benchmark-specific fields returned by `list_tasks`,
