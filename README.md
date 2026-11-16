@@ -8,7 +8,7 @@ This registry contains:
 - `terminal-bench-benchmark-service`
 - `skillsbench-benchmark-service`
 
-Both services are included as HTTPS Git submodules. The registry does not include hosted deployment
+All three services are included as HTTPS Git submodules. The registry does not include hosted deployment
 infrastructure or customer-specific service configuration.
 
 ## Repository layout
@@ -19,8 +19,7 @@ public-benchmark-services-registry/
 ├── terminal-bench-benchmark-service/
 ├── skillsbench-benchmark-service/
 ├── services.yaml
-├── Makefile
-└── scripts/
+└── Makefile
 ```
 
 ## Setup
